@@ -54,7 +54,11 @@ function App() {
   }, []);
 
   const handleValue = (e) => {
-    console.log(e.target);
+    if (e.target.classList.contains('icon')) {
+      const newValue = e.target.dataset.label;
+      setTitle(newValue);
+      setValue(person[newValue]);
+    }
   };
 
   return (
@@ -67,7 +71,7 @@ function App() {
             alt='random user'
             className='user-img'
           />
-          <p className='user-title'>my {title} is</p>
+          <p className='user-title'>My {title} is</p>
           <p className='user-value'>{value}</p>
           <div className='values-list'>
             <button
